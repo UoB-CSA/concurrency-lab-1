@@ -2,7 +2,22 @@
 
 > If you're stuck look at examples on [Go by Example](https://gobyexample.com/)
 
-## Question 1 - Median Filter
+## Using the lab sheet
+
+There are two ways to use the lab sheet, you can either:
+
+- [create a new repo from this template](https://github.com/UoB-CSA/intro-to-go-lab-2/generate) - **this is the recommended way**
+- download a [zip file](https://github.com/UoB-CSA/intro-to-go-lab-2/archive/master.zip)
+
+Each question is rated to help you balance your work:
+
+- :red_circle::white_circle::white_circle::white_circle::white_circle: - Easy, strictly necessary.
+- :red_circle::red_circle::white_circle::white_circle::white_circle: - Medium, still necessary.
+- :red_circle::red_circle::red_circle::white_circle::white_circle: - Hard, necessary if you're aiming for higher marks.
+- :red_circle::red_circle::red_circle::red_circle::white_circle: - Hard, useful for coursework extensions.
+- :red_circle::red_circle::red_circle::red_circle::red_circle: - Hard, beyond what you need for any part of the coursework.
+
+## Question 1 - Median Filter :red_circle::red_circle::white_circle::white_circle::white_circle:
 
 Open the images in the `filter` directory. As you can see, they all have 'salt and pepper' noise. Now open `medianFilter.go`. It's a single-threaded implementation of a Median Filter, which removes the salt and pepper noise. It runs through the image pixel by pixel and replaces each value with the median of neighbouring values. In this implementation, the algorithm has hardcoded radius 2 and therefore it looks at 24 neighbours (as well as its own value).
 
@@ -155,7 +170,7 @@ Try to achieve something similar in `ping.go`.
 
 
 
-## Question 2 - Parallel tree reduction
+## Question 2 - Parallel tree reduction :red_circle::red_circle::red_circle::white_circle::white_circle:
 
 So far we explored concurrency with only a handful of goroutines. In this question, you will try using a very large number of goroutines and you will analyse any costs and benefits of doing so. For example, the trace below illustrates over 8000 goroutines working on sorting a slice of size 10,000,000:
 
