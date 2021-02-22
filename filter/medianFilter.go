@@ -90,20 +90,20 @@ func loadImage(filepath string) image.Image {
 }
 
 // flattenImage takes a 2D slice and flattens it into a single 1D slice.
-func flattenImage(flattenedImage [][]uint8) []uint8 {
-	height := len(flattenedImage)
-	width := len(flattenedImage[0])
+func flattenImage(image [][]uint8) []uint8 {
+	height := len(image)
+	width := len(image[0])
 
-	filteredImageFlattened := make([]uint8, 0, height*width)
+	flattenedImage := make([]uint8, 0, height*width)
 	for i := 0; i < height; i++ {
-		filteredImageFlattened = append(filteredImageFlattened, flattenedImage[i]...)
+		flattenedImage = append(flattenedImage, image[i]...)
 	}
-	return filteredImageFlattened
+	return flattenedImage
 }
 
 // filter reads in a png image, applies the filter and outputs the result as a png image.
 // filter is the function called by the tests in medianfilter_test.go
-func filter(filepathIn, filepathOut string) {
+func filter(filepathIn, filepathOut string, threads int) {
 	image.RegisterFormat("png", "PNG", png.Decode, png.DecodeConfig)
 	image.RegisterFormat("jpeg", "jpeg", jpeg.Decode, jpeg.DecodeConfig)
 
@@ -113,8 +113,13 @@ func filter(filepathIn, filepathOut string) {
 	width := bounds.Dx()
 
 	immutableData := makeImmutableMatrix(getPixelData(img))
-
-	newPixelData := medianFilter(0, height, 0, width, immutableData)
+	var newPixelData [][]uint8
+	
+	if threads == 1 {
+		newPixelData = medianFilter(0, height, 0, width, immutableData)
+	} else {
+		panic("TODO Implement me")
+	}
 
 	imout := image.NewGray(image.Rect(0, 0, width, height))
 	imout.Pix = flattenImage(newPixelData)
@@ -128,6 +133,7 @@ func filter(filepathIn, filepathOut string) {
 func main() {
 	var filepathIn string
 	var filepathOut string
+	var threads int
 
 	flag.StringVar(
 		&filepathIn,
@@ -141,7 +147,12 @@ func main() {
 		"out.png",
 		"Specify the output file.")
 
-	flag.Parse()
+	flag.IntVar(
+		&threads,
+		"threads",
+		1,
+		"Specify the number of worker threads to use.")
 
-	filter(filepathIn, filepathOut)
+	flag.Parse()
+	filter(filepathIn, filepathOut, threads)
 }
