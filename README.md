@@ -198,7 +198,7 @@ module add anaconda/2020.07
 We are now ready to run our Median Filter benchmark. This time we will use two new flags. This will repeat each sub-benchmark 5 times, but each result will be reported individually.
 
 ```
-go test -bench . -benchtime 1x -count 5 | tee results.out
+go test -run ^$ -bench . -benchtime 1x -count 5 | tee results.out
 ```
 
 The results should look like this.
