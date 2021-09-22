@@ -16,8 +16,8 @@ func random(n int) []int32 {
 }
 
 const (
-	start = 512
-	end   = 16384
+	start = 1 << 19
+	end   = 1 << 22
 )
 
 func BenchmarkSequential(b *testing.B) {
