@@ -37,7 +37,7 @@ Usage of ./filter:
 
 Read the source code, run the filter on the provided images and verify that the noise has been removed.
 
-Make sure you run this program using either `go build` or `go run`. IDE autorun tools may not read the image files correctly.
+Make sure you run this program using either `go build` or `go run .` IDE autorun tools may not read the image files correctly.
 
 ### Question 1b
 
