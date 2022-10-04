@@ -34,6 +34,11 @@ Usage of ./filter:
   -threads int
     	Specify the number of worker threads to use. (default 1)
 ```
+For example:
+
+```bash
+  go run . -in="sion_0.02.png"
+ ```
 
 Read the source code, run the filter on the provided images and verify that the noise has been removed.
 
