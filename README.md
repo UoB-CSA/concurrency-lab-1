@@ -39,6 +39,13 @@ For example:
 ```bash
   go run . -in="sion_0.02.png"
  ```
+ or:
+ 
+```bash
+  go build
+  ./filter -in="sion_0.02.png"
+ ```
+ 
 
 Read the source code, run the filter on the provided images and verify that the noise has been removed.
 
