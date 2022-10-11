@@ -279,7 +279,7 @@ It is not enough to state what you have done. Remember that you are trying to de
 
 ### Question 1f
 
-Use the code from `main()` in `ping.go` to generate a trace of your parallel filter. Verify that the filter is processing the image via the worker goroutines.
+Use the code from `main()` in `ping.go` (lab2 in week 1) to generate a trace of your parallel filter. Verify that the filter is processing the image via the worker goroutines.
 
 ### **OPTIONAL** Question 1g
 
