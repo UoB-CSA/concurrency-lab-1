@@ -246,7 +246,7 @@ BenchmarkFilter/16_workers-12        	       1	  91232779 ns/op
 We can now use our `benchstat` library to convert raw benchmark output to a 'Comma Separated Values' (CSV) file.
 
 ```
-go run golang.org/x/perf/cmd/benchstat -csv results.out | tee results.csv
+go run golang.org/x/perf/cmd/benchstat -format csv results.out | tee results.csv
 ```
 If this produces no output, try opening your results.out with text editor (Notepad) and then saving as utf-8 encoding.
 
