@@ -202,7 +202,7 @@ GO111MODULE=off go get golang.org/x/perf/cmd/benchstat
 If you are working on a lab machine, active the Python 3 Anaconda environment.
 
 ```
-module add anaconda/2020.07
+module load anaconda/3-2024
 ```
 
 *(You can also install Anaconda on your own machine by following the [official guide](https://www.anaconda.com/products/individual). This will install the required dependencies: seaborn, numpy, matplotlib and pandas.)*
@@ -264,7 +264,7 @@ Filter/16_workers-12,1.05144E+08,28%
 Finally, we are ready to plot a bar chart of our results using Python.
 
 ```
-module load anaconda/3-2023
+module load anaconda/3-2024
 python plot.py
 ```
 
