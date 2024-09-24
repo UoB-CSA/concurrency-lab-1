@@ -3,8 +3,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Removes the irrelevant information from the results.csv file
+contents = open("results.csv", "r").read().split('\n')
+with open("parsed_results.csv", 'w') as file:
+    for line in contents:
+        if 'Filter' in line:
+            file.write(line + '\n')
+
 # Read in the saved CSV data.
-benchmark_data = pd.read_csv('results.csv', header=0, names=['name', 'time', 'range'])
+benchmark_data = pd.read_csv('parsed_results.csv', header=0, names=['name', 'time', 'range'])
 
 # Go stores benchmark results in nanoseconds. Convert all results to seconds.
 benchmark_data['time'] /= 1e+9
