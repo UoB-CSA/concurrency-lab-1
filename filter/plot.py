@@ -6,6 +6,7 @@ import seaborn as sns
 # Removes the irrelevant information from the results.csv file
 contents = open("results.csv", "r").read().split('\n')
 with open("parsed_results.csv", 'w') as file:
+    file.write('name,time,range\n')
     for line in contents:
         if 'Filter' in line:
             file.write(line + '\n')
@@ -26,7 +27,7 @@ benchmark_data['cpu_cores'] = benchmark_data['name'].str.extract('Filter/\d+_wor
 print(benchmark_data)
 
 # Plot a bar chart.
-ax = sns.barplot(data=benchmark_data, x='threads', y='time')
+ax = sns.barplot(data=benchmark_data, x='threads', y='time', hue='threads', palette='tab10', legend=False)
 
 # Set descriptive axis lables.
 ax.set(xlabel='Worker threads used', ylabel='Time taken (s)')
