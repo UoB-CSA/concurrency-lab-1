@@ -196,13 +196,13 @@ We will now use benchmarks to determine the performance improvement associated w
 Download the `benchstat` Go library.
 
 ```
-GO111MODULE=off go get golang.org/x/perf/cmd/benchstat
+GO111MODULE=on go get golang.org/x/perf/cmd/benchstat
 ```
 
 If you are working on a lab machine, active the Python 3 Anaconda environment.
 
 ```
-module load anaconda/3-2024
+module load anaconda/3-2025
 ```
 
 *(You can also install Anaconda on your own machine by following the [official guide](https://www.anaconda.com/products/individual). This will install the required dependencies: seaborn, numpy, matplotlib and pandas.)*
