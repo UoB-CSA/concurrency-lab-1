@@ -264,7 +264,7 @@ Filter/16_workers-12,1.05144E+08,28%
 Finally, we are ready to plot a bar chart of our results using Python.
 
 ```
-module load anaconda/3-2024
+module load anaconda/3-2025
 python plot.py
 ```
 
