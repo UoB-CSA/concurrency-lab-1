@@ -69,9 +69,9 @@ We *could* use channels of type `chan uint8` to pass `uint8` values one by one, 
 
 Instead, today we will explore how to create a *closure* that will make our slice immutable.
 
-The variable `immutableData` in the function `filter()` is a closure. It is **not** a slice or any other data type. The function `makeImmutableMatrix(...)` returns a function. It stores a reference to a 2D slice and given `y` and `x` coordinates it returns a `uint8` from the slice that it wraps. Such a function with hidden state is called a [closure](https://gobyexample.com/closures). This mechanism is similar to an object with a getter in java.
+The variable `immutableData` in the function `filter()` is a closure. It is **not** a slice or any other data type. The function `makeImmutableMatrix(...)` returns a function. It stores a reference to a 2D slice and given `y` and `x` coordinates it returns a `uint8` from the slice that it wraps. Such a function with hidden state is called a [closure](https://gobyexample.com/closures). This mechanism is similar to an object with a getter in java. 
 
-The use of a closure means that the slice it wraps effectively becomes immutable. As a programmer, you now have no direct access to the pointer and therefore no way of modifying the slice. This will allow us to pass the closure to multiple goroutines without causing any potential [race conditions](https://en.wikipedia.org/wiki/Race_condition) since concurrent read operations are perfectly safe - concurrent writes or reads when a write may be happening almost always aren't.
+The use of a closure means that the slice it wraps effectively becomes immutable. As a programmer, you now have no direct access to the pointer and therefore no way of modifying the slice. This will allow us to pass the closure to multiple goroutines without causing any potential [race conditions](https://en.wikipedia.org/wiki/Race_condition) since concurrent read operations are perfectly safe - concurrent writes or reads when a write may be happening almost always aren't. Further justifucations are available [here](https://uob-csa.github.io/website/vis/week2/closure.html)
 
 #### Receiving
 
