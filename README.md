@@ -53,6 +53,8 @@ Make sure you run this program using either `go build` or `go run .` IDE autorun
 
 ### Question 1b
 
+[Click here for visualisation of solution](https://uob-csa.github.io/website/vis/week2/medianFilter.html)
+
 The median filter is an example of a problem that is "embarrassingly parallelisable" Consider having 4 worker threads. We could split the image into 4 parts and ask each worker to process their chunk in parallel to other workers. At the end, we can collect the result and output the final image.
 
 Your task will be to write code that supports 2, 4, 8 and 16 worker threads.
